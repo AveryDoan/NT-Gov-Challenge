@@ -1,7 +1,8 @@
 # GOVHACK_2025
 # CiteQueryChatbot  
 
-Resources: https://www.youtube.com/watch?v=LRcjlXL9hPA
+Resources: https://www.youtube.com/watch?v=LRcjlXL9hPA Text to SQL Agent for Data Visualization
+Resources: https://www.youtube.com/watch?v=nXuTJrzkn9Q What Happens When You Combine RAG with Text2SQL?
 
 **Team:** Croc and Chips  
 **Event:** GovHack 2025, Northern Territory  
