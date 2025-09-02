@@ -24,8 +24,23 @@ CiteQueryChatbot uses a **Retrieve-Augment-Generate (RAG) pipeline** with Natura
 
 1. **Dataset Upload:** Users enter an API key and upload datasets (e.g., APS Employee Census 2024, AusTender Procurement Statistics, Portfolio Budget Statements) into an SQLite database.  
 2. **Dataset Summary:** Provides statistical summary (averages, outliers, missing values).  
-3. **Question Scaffolding:** NLTK suggests tailored questions if input is vague.  
-4. **SQL Query Generation:** Converts questions into precise SQL (RAG), executed on the SQLite database.  
+3. **Question Scaffolding:** NLTK suggests tailored questions if input is vague.
+
+   **Lemmatization:** The project imports WordNetLemmatizer and defines lemmatize_sentence to normalize user inputs and dataset column names (e.g., reducing "means" to "mean" or "employees" to "employee"). This helps in matching synonyms and handling variations in natural language queries.  
+
+   **In Suggest_Query:** User input is lemmatized and compared to column names or template keywords using TF-IDF and cosine similarity (from scikit-learn). For example, if a user asks "average days taken by departments," it lemmatizes to match "avg" synonyms and "department" columns, suggesting an SQL template like SELECT department, AVG(days_taken) FROM table GROUP BY department.  
+
+   **In Suggest_Questions:** Lemmatizes suggested questions (e.g., "What are the average days taken by department?") and ranks them by similarity to the user's input, providing 5 top matches to scaffold vague queries.  
+
+4. **SQL Query Generation:** Converts questions into precise SQL (RAG), executed on the SQLite database.
+
+   **Retrieval (Divide into Smaller Parts):** After uploading a dataset (e.g., CSV to SQLite), the system analyzes columns (numeric, categorical, date) and generates query templates (e.g., "group_by": SELECT {column}, AVG({numeric_column}) FROM table GROUP BY {column}). These templates act as "retrieved" structured knowledge from the dataset's metadata.  
+
+   **Augmentation (Prompt + Context):** User query (e.g., "average days by department") is normalized (lemmatized via NLTK, synonym-mapped) and matched to templates using TF-IDF and cosine similarity. It augments the query with dataset context (columns, unique values) to select/fill the best template (e.g., plugging in "department" and "days_taken").  
+
+   **Generation (LLM-like):** Generates an SQL query from the augmented template, executes it on SQLite, computes a trust score (60% data completeness + 40% relevance), and presents results (table + chart) with assumptions/warnings.
+
+
 5. **Trust Scoring:** Calculates score (0–100%).  
    - 60% based on data quality (missing values, outliers, consistency).  
    - 40% based on question relevance.  
