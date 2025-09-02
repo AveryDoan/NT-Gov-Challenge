@@ -117,9 +117,9 @@ class APIConfigDialog:
         # You can implement actual API testing here
         try:
             # Simulate API test
-            messagebox.showinfo("Success", "✅ API connection test successful!\n(This is a simulation)", parent=self.dialog)
+            messagebox.showinfo("Success", "API connection test successful!\n(This is a simulation)", parent=self.dialog)
         except Exception as e:
-            messagebox.showerror("Error", f"❌ API connection failed:\n{str(e)}", parent=self.dialog)
+            messagebox.showerror("Error", f"API connection failed:\n{str(e)}", parent=self.dialog)
     
     def save_and_continue(self):
         """Save the configuration and continue"""
@@ -671,9 +671,9 @@ def main():
     
     # Show welcome message with API status
     if config_dialog.api_url and config_dialog.api_key:
-        messagebox.showinfo("Welcome", "🚀 CiteQuery initialized successfully!\n\nAPI configuration loaded.", parent=root)
+        messagebox.showinfo("Welcome", "CiteQuery initialized successfully!\n\nAPI configuration loaded.", parent=root)
     else:
-        messagebox.showinfo("Welcome", "🚀 CiteQuery initialized!\n\nRunning in offline mode.", parent=root)
+        messagebox.showinfo("Welcome", "CiteQuery initialized!\n\nRunning in offline mode.", parent=root)
     
     root.mainloop()
 
