@@ -1,6 +1,8 @@
 # GOVHACK_2025
 # CiteQueryChatbot  
 
+Resources: https://www.youtube.com/watch?v=LRcjlXL9hPA
+
 **Team:** Croc and Chips  
 **Event:** GovHack 2025, Northern Territory  
 **Challenge:** An Accurate and Trustworthy Chatbot for Data Interactions  
