@@ -6,7 +6,7 @@ Resources: https://www.youtube.com/watch?v=LRcjlXL9hPA
 **Team:** Croc and Chips  
 **Event:** GovHack 2025, Northern Territory  
 **Challenge:** An Accurate and Trustworthy Chatbot for Data Interactions  
-**Team Members:** Max (Ngoc Cuong Hoang), Kingsley (Kar Keat Koh, NT Lead), Felix (Tien Minh Nguyen), Avery (Le Quynh Nhu Doan), Jane (Phuong Tran Tran), Echo (Tianhui Ke), Emma (ThiXuan Thanh Tran)  
+**Team Members:** Max (Ngoc Cuong Hoang), Kingsley (Kar Keat Koh), Felix (Tien Minh Nguyen), Avery (Le Quynh Nhu Doan), Jane (Phuong Tran Tran), Echo (Tianhui Ke), Emma (ThiXuan Thanh Tran)  
 
 ---
 
@@ -25,7 +25,7 @@ CiteQueryChatbot uses a **Retrieve-Augment-Generate (RAG) pipeline** with Natura
 1. **Dataset Upload:** Users enter an API key and upload datasets (e.g., APS Employee Census 2024, AusTender Procurement Statistics, Portfolio Budget Statements) into an SQLite database.  
 2. **Dataset Summary:** Provides statistical summary (averages, outliers, missing values).  
 3. **Question Scaffolding:** NLTK suggests tailored questions if input is vague.  
-4. **SQL Query Generation:** Converts questions into precise SQL, executed on the SQLite database.  
+4. **SQL Query Generation:** Converts questions into precise SQL (RAG), executed on the SQLite database.  
 5. **Trust Scoring:** Calculates score (0–100%).  
    - 60% based on data quality (missing values, outliers, consistency).  
    - 40% based on question relevance.  
@@ -37,8 +37,8 @@ CiteQueryChatbot uses a **Retrieve-Augment-Generate (RAG) pipeline** with Natura
 
 ## Key Features  
 
-- **Conversational Data Interrogation:** Works across HR, finance, and operations.  
-- **Trust Scoring:** Reliability ensured via quality (60%) + relevance (40%).  
+- **Conversational Data Interrogation:** Works across HR, finance, etc.  
+- **Trust Scoring:** Reliability ensured via quality (60%) + relevance (40%) + Data validation (integrating) 
 - **Grounded Responses:** SQL eliminates hallucinations.  
 - **Transferable Framework:** Role-based expansion planned.  
 - **Question Scaffolding:** NLP-driven query suggestions.  
@@ -65,15 +65,7 @@ Accuracy tested on **Kaggle Employee Leave Tracking Dataset** (>1,000 rows), wit
 - **Bias Prevention:** Neutral SQL queries, diverse dataset checks.  
 - **Transparency:** Trust scores, audit logs, explainable SQL outputs.  
 
----
-
-## Northern Territory Relevance  
-
-Led by NT team member **Kar Keat Koh**, the chatbot is tailored for NT government needs, such as:  
-- Interrogating **AusTender data** for regional procurement.  
-- Analyzing **APS Census** for remote workforce management.  
-
----
+--- 
 
 ## Future Plans  
 
